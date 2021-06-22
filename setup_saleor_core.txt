@@ -5,8 +5,8 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
 sudo apt-get -y upgrade
 
-sudo apt-get install python3.7 libpython3.7-dev python3-all-dev
-
+sudo apt-get install python3.9 libpython3.9-dev python3-all-dev
+sudo apt install -y python3-pip
 
 sudo apt install virtualenv
 sudo apt install postgresql
@@ -15,7 +15,7 @@ sudo apt-get install build-essential python3-dev
 
 # Required for 2.11 and above.
 sudo apt-get install libpangocairo-1.0-0
-
+sudo apt install build-essential libssl-dev libffi-dev python3-dev
 
 ### Setup Node
  ### insatalling node.
@@ -35,10 +35,12 @@ sudo apt-get install libpangocairo-1.0-0
 ### Setup Code 
  mkdir -p codes/backend
  cd codes/backend
- virtualenv -p python3.7 venv
+ git clone https://github.com/mirumee/saleor.git
+ 
+ virtualenv -p python3.9 venv
  source venv/bin/activate
  cd saleor
- git fetch origin 2.10:2.10 && git checkout 2.10
+ git fetch origin 2.11:2.11 && git checkout 2.11
  pip install -r requirements.txt
 
 ### settiing up postgres user.
